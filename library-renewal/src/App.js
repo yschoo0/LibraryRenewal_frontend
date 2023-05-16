@@ -1,21 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import MyLoanPage from './pages/MyLoanPage';
-import StudyRoomReservePage from './pages/StudyRoomReservePage';
-import GlobalStyle from './GlobalStyle';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <Header></Header>
-      <Routes>
-        <Route path="/myloan/*" element={<MyLoanPage />}></Route>
-        <Route
-          path="/studyroom/reserve/*"
-          element={<StudyRoomReservePage />}
-        ></Route>
-      </Routes>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
