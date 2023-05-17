@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
 import MyLoanPage from './pages/MyLoanPage';
 import StudyRoomReservePage from './pages/StudyRoomReservePage';
 import GlobalStyle from './GlobalStyle';
@@ -8,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Header></Header>
       <Routes>
         <Route path="/myloan/*" element={<MyLoanPage />}></Route>
         <Route
