@@ -13,30 +13,42 @@ const Container = styled.div`
   td {
     border: 1px solid black;
   }
+
+  .col-title {
+    text-align: center;
+  }
 `;
 
 const MyLoanHistory = () => {
   return (
     <Container>
-      <h3>총 10건</h3>
+      <h3>총 2건</h3>
       <div className="loan-list">
         <table>
           <tbody>
             <tr>
-              <td className="column-title">No.</td>
-              <td className="column-title">책 이름</td>
-              <td className="column-title">저자</td>
-              <td className="column-title">대출일</td>
-              <td className="column-title">반납일</td>
-              <td className="column-title">반납유형</td>
+              <td className="col-title">No.</td>
+              <td className="col-title">책 이름</td>
+              <td className="col-title">저자</td>
+              <td className="col-title">대출일</td>
+              <td className="col-title">반납일</td>
+              <td className="col-title">반납유형</td>
             </tr>
             <tr>
-              <td className="column-title">No.</td>
-              <td className="column-title">OOO</td>
-              <td className="column-title">OOO</td>
-              <td className="column-title">2023-05-17</td>
-              <td className="column-title">2023-05-28</td>
-              <td className="column-title">정상반납</td>
+              <td className="col-title">1</td>
+              <td className="col-title">OOO</td>
+              <td className="col-title">OOO</td>
+              <td className="col-title">2023-05-17</td>
+              <td className="col-title">2023-05-28</td>
+              <td className="col-title">정상반납</td>
+            </tr>
+            <tr>
+              <td className="col-title">2</td>
+              <td className="col-title">OOO</td>
+              <td className="col-title">OOO</td>
+              <td className="col-title">2023-05-17</td>
+              <td className="col-title">2023-05-28</td>
+              <td className="col-title">연체반납</td>
             </tr>
           </tbody>
         </table>
