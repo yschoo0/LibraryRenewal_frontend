@@ -5,11 +5,13 @@ const Container = styled.div`
   .loan-list {
     margin-bottom: 2rem;
   }
+
   table {
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
   }
+
   th,
   td {
     border: 1px solid black;
