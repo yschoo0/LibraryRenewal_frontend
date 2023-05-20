@@ -34,6 +34,7 @@ const TabLink = styled(Link)`
   height: 1.5rem;
   color: black;
   cursor: pointer;
+
   :hover {
     background-color: #00a4c3;
     color: white;
