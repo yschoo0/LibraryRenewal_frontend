@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Container = styled.div`
   .loan-list {
@@ -43,14 +44,6 @@ const MyLoanHistory = () => {
               <td className="col-title">2023-05-17</td>
               <td className="col-title">2023-05-28</td>
               <td className="col-title">정상반납</td>
-            </tr>
-            <tr>
-              <td className="col-title">2</td>
-              <td className="col-title">OOO</td>
-              <td className="col-title">OOO</td>
-              <td className="col-title">2023-05-17</td>
-              <td className="col-title">2023-05-28</td>
-              <td className="col-title">연체반납</td>
             </tr>
           </tbody>
         </table>
