@@ -45,6 +45,9 @@ const MyLoanPage = () => {
   const { pathname } = useLocation();
 
   return (
+    <div className='container'>
+    <div className="space-for-nav" style={{ height: "4rem" }}></div>
+    <div className="space-for-nav" style={{ height: "4rem" }}></div>
     <ContainerBox>
       <Title>대출조회/연장/예약</Title>
       <div className="tap-container">
@@ -76,6 +79,13 @@ const MyLoanPage = () => {
         <Route path="reserve/list" element={<MyReserveList />}></Route>
       </Routes>
     </ContainerBox>
+
+      <div className="space-for-nav" style={{ height: "4rem" }}></div>
+      <div className="space-for-nav" style={{ height: "4rem" }}></div>
+      <div className="space-for-nav" style={{ height: "4rem" }}></div>
+      <div className="space-for-nav" style={{ height: "4rem" }}></div>
+
+    </div>
   );
 };
 
