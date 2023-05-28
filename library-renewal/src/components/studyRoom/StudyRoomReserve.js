@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
+import StudyRoomCard from './StudyRoomCard';
+import { useState, useEffect } from 'react';
+import { convertDate } from '../../utils/dateConvert';
 
 const Container = styled.div`
+  width: 60%;
+
   .loan-list {
     margin-bottom: 2rem;
   }
@@ -29,6 +34,7 @@ const Notification = styled.div`
 
   span {
     display: block;
+    color: black;
   }
 `;
 
@@ -37,6 +43,10 @@ const RoomContainer = styled.div`
   border: 1px solid #d7d7d7;
   margin-top: 16px;
   border-radius: 5px;
+
+  span {
+    color: black;
+  }
 `;
 
 const RoomNo = styled.div`
@@ -82,17 +92,32 @@ const RoomContent = styled.div`
     align-items: center;
     margin-top: 10px;
 
-    .time {
-      width: 6rem;
+    button {
+      width: 6.5rem;
       height: 4rem;
-      padding: 10px;
       background-color: #e1f6fc;
       text-align: center;
       border: 1px solid #049fff;
       margin-right: 10px;
 
       span:first-child {
-        font-weight: 600;
+        font-weight: 500;
+      }
+
+      :hover {
+        background-color: #779acf;
+
+        span {
+          color: #ffffff;
+        }
+      }
+
+      :focus {
+        background-color: #1872be;
+
+        span {
+          color: #ffffff;
+        }
       }
     }
 
@@ -103,16 +128,19 @@ const RoomContent = styled.div`
 
   .reserve-box {
     margin: auto;
-    width: 4rem;
+    width: 5rem;
     height: 2.5rem;
     text-align: center;
     margin-top: 26px;
     border: 1px solid black;
-    font-size: 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
 
     .reserve-btn {
       display: block;
-      line-height: 2rem;
+      line-height: 2.5rem;
     }
   }
 `;
@@ -120,13 +148,24 @@ const RoomContent = styled.div`
 const StudyRoomReserve = () => {
   const { pathname } = useLocation();
 
+  const [currentLastUrl, setCurrentLastUrl] = useState(null);
+
+  const todayDate = convertDate(new Date());
+
+  useEffect(() => {
+    const url = pathname;
+    const splitUrl = url.split('/');
+    const location = splitUrl[splitUrl.length - 1];
+    setCurrentLastUrl(location);
+  });
+
   return (
     <Container>
       <Notification>
         {pathname === '/studyroom/reserve' ||
         pathname === '/studyroom/reserve/list' ||
-        pathname === '/studyroom/reserve/2f' ||
-        pathname === '/studyroom/reserve/3f' ? (
+        pathname === '/studyroom/reserve/floor1' ||
+        pathname === '/studyroom/reserve/floor2' ? (
           <>
             <span className="noti-title">
               {'<'}유의사항{'>'}
@@ -145,7 +184,7 @@ const StudyRoomReserve = () => {
             </span>
             <span>- 평일 : 09:00 ~ 21:50 / 토~일요일 : 13:00 ~ 18:50</span>
           </>
-        ) : pathname === '/studyroom/reserve/4f/digitalRoom' ? (
+        ) : pathname === '/studyroom/reserve/floor3' ? (
           <>
             <span className="noti-title">
               {'<'}유의사항{'>'}
@@ -169,7 +208,7 @@ const StudyRoomReserve = () => {
             <span>- 유의사항 및 사용시간, 인원은 다른 층 스터디룸과 동일</span>
             <span>- 연결기기 사용은 4층 C-Square 데스크로 문의</span>
           </>
-        ) : pathname === '/studyroom/reserve/4f/CSquare' ? (
+        ) : pathname === '/studyroom/reserve/floor4' ? (
           <>
             <span>
               - 창의 협업 및 연구, 학습, 창업활동이 가능한 융복합 공간
@@ -214,52 +253,7 @@ const StudyRoomReserve = () => {
           </>
         )}
       </Notification>
-      <RoomContainer>
-        <RoomNo>
-          <span>17212호실</span>
-        </RoomNo>
-        <RoomContent>
-          <div className="room-info">
-            <div className="room-pic">시설 사진</div>
-            <div className="room-noti">
-              <span>- 사용 인원 : 3~6명 입실가능</span>
-              <span>- 평일 : 09:00 ~ 21:50</span>
-              <span>- 토~일요일 (공휴일 포함) : 13:00 ~ 18:50</span>
-            </div>
-          </div>
-          <div className="room-reservation">
-            <button className="time first">
-              <span>13:00~14:00</span>
-              <span>예약가능</span>
-            </button>
-            <button className="time second">
-              <span>14:00~15:00</span>
-              <span>예약가능</span>
-            </button>
-            <button className="time third">
-              <span>15:00~16:00</span>
-              <span>예약가능</span>
-            </button>
-            <button className="time fourth">
-              <span>16:00~17:00</span>
-              <span>예약가능</span>
-            </button>
-            <button className="time fifth">
-              <span>17:00~18:00</span>
-              <span>예약가능</span>
-            </button>
-            <button className="time sixth">
-              <span>18:00~19:00</span>
-              <span>예약가능</span>
-            </button>
-          </div>
-          <div className="reserve-box">
-            <div className="reserve-btn">
-              <button>신청</button>
-            </div>
-          </div>
-        </RoomContent>
-      </RoomContainer>
+      <StudyRoomCard currentLastUrl={currentLastUrl} todayDate={todayDate} />
     </Container>
   );
 };
