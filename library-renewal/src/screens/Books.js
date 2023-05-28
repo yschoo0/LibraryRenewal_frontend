@@ -378,7 +378,7 @@ const Books = () => {
           ))}
         </ul>
       </div>
-      {/* Rest of the code */}
+
     </div>
   );
 };
