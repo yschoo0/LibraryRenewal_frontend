@@ -3,11 +3,18 @@ import axios from 'axios';
 const defaultRequest = axios.create();
 
 // 모든 요청에 withCredentials가 true로 설정
-defaultRequest.defaults.withCredentials = true;
+// defaultRequest.defaults.withCredentials = true;
 // post의 content-type을 지정
 defaultRequest.defaults.headers.post['Content-Type'] = 'application/json';
 // 서버 API 주소 지정
 defaultRequest.defaults.baseURL = process.env.REACT_APP_SERVER_API;
+
+defaultRequest.defaults.headers['Content-Type'] = 'application/json';
+
+//defaultRequest.defaults.headers['Access-Control-Allow-Headers'] = '*';
+
+//defaultRequest.defaults.headers['Access-Control-Allow-Origin'] = '*';
+//defaultRequest.defaults.headers['Access-Control-Allow-Credentials'] = 'true';
 
 defaultRequest.interceptors.response.use(
   (response) => {
