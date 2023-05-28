@@ -9,14 +9,16 @@ li{
     background-color: #394867;
     border-radius: 28px;
     text-align: center;
-    color: #9BA4B5;
+    /* color: #9BA4B5; */
+    color: black;
     margin-left: 60px;
     margin-right: 20px;
+    font-weight: bold;
 }
 li>a{
     text-decoration: none;
 }
-.thin{
+/* .thin{
     box-sizing: border-box;
     width: 40px;
     height: 150px;
@@ -31,12 +33,16 @@ li>a{
     width: 40px;
     height: 150px;
     transition: all 0.35s;
-}
+} */
+.book.hovered {
+    background-image: none;
+    background-color: #f1f1f1;
+  }
 ul{
     display: flex;
 }
 .book{
-    background-image: url(https://www.hanbit.co.kr/data/books/B8371709349_l.jpg);
+    
     background-size: cover;
     box-sizing: border-box;
     line-height: 25vh;
@@ -48,16 +54,19 @@ ul{
     
 }
 .book:hover{
-    background-image: none;
+
     transition: transform 0.4s linear;
     transform: scale(1.1);
 
 }
+
+
 .book:hover p{
     opacity: 1;
-    padding-top: 65px;
+    padding-top: 35px;
 
 }
+
 .new{
     margin-top: 90px;
 }
