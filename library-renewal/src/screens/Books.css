@@ -18,22 +18,7 @@ li{
 li>a{
     text-decoration: none;
 }
-/* .thin{
-    box-sizing: border-box;
-    width: 40px;
-    height: 150px;
-    border-radius: 10px;
-    margin-left: 2px;
-    transform: rotate(-11deg);
-    writing-mode: vertical-rl;
-    padding-right: 12px;
-}
-.thin:hover{
-    transform: rotate(0deg);
-    width: 40px;
-    height: 150px;
-    transition: all 0.35s;
-} */
+
 .book.hovered {
     background-image: none;
     background-color: #f1f1f1;
