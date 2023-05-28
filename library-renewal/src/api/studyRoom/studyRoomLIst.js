@@ -1,5 +1,18 @@
-import authRequest from '../authRequest';
 import defaultRequest from '../defaultRequest';
+import authRequest from '../authRequest';
+
+// /api/room?floor={}&data={}
+export const getStudyRoomList = async ({ floor, data }) => {
+  try {
+    const res = await defaultRequest.get('/api/room', {
+      params: { floor, data },
+    });
+
+    return res?.data?.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // api url
 export const STUDYROOM_ENDPOINT =
